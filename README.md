@@ -8,3 +8,5 @@ export xiami music collection to kugou music box as the KLG file
 因为网易云诡异的搜索匹配，并不能直接很准确的导入。
 
 所以然并卵。
+
+只起到了导出歌单的效果。
