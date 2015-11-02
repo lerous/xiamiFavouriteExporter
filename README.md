@@ -1,6 +1,8 @@
 # xiamiFavouriteExporter
 export xiami music collection to kugou music box as the KLG file
 
+gist打不开，索性扔个项目
+
 起因是晚上看到虾米音乐下架了一部分版权歌曲，网易云要求使用酷狗音乐盒播放列表才能导入。
 
 但是，
