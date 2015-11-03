@@ -1,4 +1,6 @@
 # xiamiFavouriteExporter
+
+![HEHE](http://ww3.sinaimg.cn/large/69cea92cjw1exnzs7qqcfj205s05nmx7.jpg)
 export xiami music collection to kugou music box as the KLG file
 
 gist打不开，索性扔个项目
