@@ -7,7 +7,8 @@ import logging
 import math
 import os
 from bs4 import BeautifulSoup
-import urllib2
+import urllib2 
+
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
@@ -23,10 +24,10 @@ def createList(soup):
 	number = soup.find_all("span", class_="counts")[0].get_text().replace('首', '')
 	mob = soup.find_all("td", class_="song_name")
 	cra_num = int(math.ceil(float(number)/len(mob)))
-	f=open('xiami.kgl','a')
+	f=open('xiami.kwl','a')
 	for key in mob:
 		temp_consumer.append(key.get_text())
-		f.write('\t<File>\n\t\t<MediaFileType>0</MediaFileType>\n\t\t<FileName>'+ key.get_text().replace("\r","").replace("\n","").replace("\t","").replace("&","").replace("<","").replace(">","").replace("    ", "") + '</FileName>\n\t</File>\n')
+		f.write('\t<so name="'+ key.a.get_text().replace("&","").replace("<","").replace(">","").replace('"', "").replace("¹", "").replace("¨", "") + '" artist="' + key.find_all("a", class_="artist_name")[0].get_text().replace("&","").replace("<","").replace(">","").replace("    ", "") + '"></so>\n')
 
 def line_prepender(filename, line):
 	with open(filename, 'r+') as f:
@@ -51,8 +52,15 @@ if __name__ == "__main__":
 		print 'now downloading the page '+str(now_num)+'/'+str(cra_num)
 		getContent('http://www.xiami.com/space/lib-song/u/'+str(user_id)+'/page/'+ str(i+1))
 		if i == cra_num-1:
-			g = open('xiami.kgl','a')	
-			g.write('</List>')
+			g = open('xiami.kwl','a')	
+			g.write('</so>')
 			g.close()
-			line_prepender('xiami.kgl', '<?xml version="1.0" encoding="windows-1252"?>\n<List ListName="虾米音乐">')
+			line_prepender('xiami.kwl', '<so>')
+
+			gbkfile = open('xiami.kwl')
+			tstr = gbkfile.read().encode('GBK',"ignore")
+			gbkfile.close()
+			w_file = open('xiami.kwl', 'w')
+			w_file.write(tstr)
+			w_file.close()
 			print 'compelete!'
