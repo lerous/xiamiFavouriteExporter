@@ -1,6 +1,6 @@
 # xiamiFavouriteExporter
 
-export xiami music collection to kugou music box as the KLG file
+export xiami music collection to kugou music box as the KWL file
 
 代码实用为主，gist打不开，索性扔个项目
 
